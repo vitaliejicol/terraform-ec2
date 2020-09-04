@@ -20,7 +20,7 @@ if [ ! -f "$DATAFILE" ]; then
     return 1
 fi
 # Get env from DATAFILE
-ENVIRONMENT=$(sed -nr 's/^\s*environment\s*=\s*"([^"]*)".*$/\1/p' "$DATAFILE")
+ENVIRONMENT=$(sed -nr 's/^\s*env.BRANCH_NAME\s*=\s*"([^"]*)".*$/\1/p' "$DATAFILE")
 S3BUCKET=$(sed -nr 's/^\s*s3_bucket\s*=\s*"([^"]*)".*$/\1/p' "$DATAFILE")
 S3BUCKETPROJ=$(sed -nr 's/^\s*s3_folder_project\s*=\s*"([^"]*)".*$/\1/p' "$DATAFILE")
 S3BUCKETREGION=$(sed -nr 's/^\s*s3_folder_region\s*=\s*"([^"]*)".*$/\1/p' "$DATAFILE")
