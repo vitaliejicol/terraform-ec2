@@ -16,7 +16,7 @@ resource "aws_instance" "web" {
   subnet_id     = tolist(data.aws_subnet_ids.my-subnets.ids)[0]
 
   tags = {
-    Name = "${var.environment[0]}-instance"
+    Name = "${var.environment}-instance ${count.index}"
   }
 }
 
